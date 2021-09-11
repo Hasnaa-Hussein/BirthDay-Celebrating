@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Birthday_Celebrating.Models.TblChildern>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+<div class="d-flex justify-content-around m-5">
+        <form action="/Home/Add" class="text-center me-5">
+            <select  id="childernNames" name="ID">
+                @foreach (var item in Model)
+                {
+                    if (item.Attend == false)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+
+                    }
+                }
+            </select>
+            <input type="submit" class="btn btn-danger mt-2" value="Welcome">
+        </form>
+
+    <table class="table table-striped table-bordered" style="padding:30px;">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="text-center">Remove</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.Attend == true)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td class="text-center" name="ID">
+                        <a href="/Home/Remove/@item.ID" class="btn btn-danger">X</a>
+                    </td>
+
+                </tr>
+            }
+        }
+
+    </table>
+
+</div>
+
+<div id="Image-Move">
+    <h3 class="birthday-head">Happy BirthDay</h3>
+    <img  src="~/Content/Images/image_processing20200410-19194-1h5u8jy.png" class="imgM" />
+    <audio controls loop id="audio-play" class="display-Item">
+        <source src="~/Content/audio/birhday song kaka balachander.mp3" type="audio/mpeg" />
+    </audio>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsimageMovesP1UyJoMp4YLEuNSfAP+JcimageMoven/tWtIaimageMoveVimageMoveM" crossorigin="anonymous"></script>
+
+@if (TempData["birthtoday"] != null)
+{
+    <script type="text/javascript">
+
+        var imageMove = document.getElementById("Image-Move");
+        var audio = document.getElementById("audio-play");
+        audio.play();
+        imageMove.style.display = "block";
+        setTimeout(function () {
+            imageMove.style.display = 'none';
+            audio.pause();
+        }, 5000);
+
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

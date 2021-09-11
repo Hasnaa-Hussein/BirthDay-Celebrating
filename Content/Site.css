@@ -1,0 +1,55 @@
+﻿body {
+    background-color: #F8F9FA;
+}
+
+.imgM {
+    background-color: dimgray;
+    width: 15%;
+    border-radius: 10%;
+}
+
+.display-Item {
+    display: none;
+}
+
+#Image-Move {
+    display: none;
+    position: relative;
+    animation: myfirst 20s 5;
+    animation-direction: alternate;
+}
+
+.birthday-head {
+    font-family: 'Lobster', cursive;
+}
+
+#btnModal {
+    display: none;
+}
+
+#btnCreate {
+    display: none;
+}
+
+@keyframes myfirst {
+    0% {
+        left: 600px;
+    }
+
+    25% {
+        left: 400px;
+    }
+
+    50% {
+        left: 200px;
+    }
+
+    75% {
+        left: 400px;
+    }
+
+
+    100% {
+        left: 600px;
+    }
+}
